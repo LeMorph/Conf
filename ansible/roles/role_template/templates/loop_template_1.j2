@@ -1,0 +1,49 @@
+# Maintained via Ansible 
+# last update on  {{ ansible_date_time.weekday }} {{ ansible_date_time.date }} at {{ ansible_date_time.time }} {{ ansible_date_time.tz }}.
+
+global_defs {
+  notification_email {
+    {{ hapee.keepalived.notification.to }}
+  }
+  notification_email_from {{ hapee.keepalived.notification.from }}
+  smtp_server {{ hapee.keepalived.notification.server }}
+  smtp_connect_timeout 30
+  router_id hapee
+}
+
+vrrp_script chk_service_status {
+    script "pkill -0 hapee-lb" 
+    interval 1                 
+    weight 6                   
+    fall 2                     
+    rise 1                     
+}
+
+# vrrp_script chk_hapee {
+#   script "/etc/hapee-{{ hapee.version }}/proc_chk.sh"
+#   interval 1   # check every 1 seconds
+# }
+
+vrrp_instance {{ hapee.keepalived.name }}  {
+    interface {{ hapee.keepalived.interface }}
+    state {{ hapee.keepalived.state }}
+    virtual_router_id {{ hapee.keepalived.vrid }}
+    priority {{ hapee.keepalived.priority }}   # 101 on master, 100 on backup
+    advert_int 1
+    smtp_alert
+    nopreempt   # manual failover between primary and secondary when both are in BACKUP state
+    virtual_ipaddress {
+      {% for frontend in hapee.frontends %}
+      {{ frontend.address }}/23 dev {{ hapee.keepalived.interface }}   # {{ frontend.name }}
+      {% endfor %}
+  }
+
+    track_interface {
+      {{ hapee.keepalived.interface }} weight -2    
+  }
+    track_script {
+         # chk_hapee
+         chk_service_status
+  }
+}
+

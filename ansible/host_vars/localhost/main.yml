@@ -1,0 +1,7 @@
+---
+# Host Vars for localhost
+hapee: 
+  keepalived:
+    name: "Somethingelse"
+    priority: "101"
+    state: "BACKUP"

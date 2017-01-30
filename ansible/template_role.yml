@@ -1,0 +1,16 @@
+---
+- name: Template Deploy 
+  # user: root
+
+  ## limit accidental playbook run
+  hosts: local
+  # hosts:
+  #  - group-dev
+  #  - group-test
+  #  - group-prod
+
+  strategy: free
+  
+  roles:
+    - { role: "role_template", tags: ["TAG_template_role"] }
+      

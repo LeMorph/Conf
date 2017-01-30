@@ -1,0 +1,41 @@
+---
+# Group Vars
+
+# General config
+ENV: dev
+
+# hapee config
+hapee:
+  # Keepalived config
+  keepalived:
+    vrid: "150"
+    notification:
+      server: "aspmx.l.google.com"
+      from: "user@mydomain.com"
+      to: "user@mydomain.com"
+
+  # Logwatch config
+  logwatch:
+    notification:
+      from: "user@mydomain.com"
+      to: "user@mydomain.com"
+
+
+  # hapee actual servers
+  actuals:
+    # hapee-dev01.mydomain.com:                       # Host declaration
+    - name: "hapee-dev01.mydomain.com"                # A natural name for the primary hapee server
+      address: "192.168.10.222"                           # The IP address for the primary hapee server
+
+    #hapee-dev02.mydomain.com:                        # Host declaration
+    - name: "hapee-dev02.mydomain.com"                # A natural name for the secondary hapee server
+      address: "192.168.10.229"                           # The IP address for the secondary hapee server
+
+  # hapee frontends
+  frontends:
+    # bab-ctrl-dev.mydomain.com:                         # Host declaration
+    - name: "bab-ctrl-dev.mydomain.com"                  # A natural name for each frontend. Required.
+      address: "192.168.10.209"                            # The IP this frontend should bind to. Defaults to *
+      cert: "mydomain.com/mydomain.com.pem"             # One or more SSL certificates, for SSL offloading. Optional.
+      realm: "mydomain"
+      default_backend: "bab-ctrl-dev.mydomain.com"       # The default backend to be proxied to, if nothing else matches. Optional.

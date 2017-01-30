@@ -1,0 +1,29 @@
+---
+
+- name: Ensure logwatch {{ hapee.logwatch.version }} is installed
+  yum: name=logwatch-{{ hapee.logwatch.version }}
+       state=installed
+
+- name: logwatch configuration
+  template: src="{{ item.src }}"
+            dest="{{ item.dest }}"
+            mode=0644
+            owner=root
+            group=root
+  with_items:
+    - { src: 'logwatch.conf.j2', dest: '/etc/logwatch/conf/logwatch.conf' }  
+                                                        # logwatch core configuration file
+    - { src: 'layer7-logfiles.conf.j2', dest: '/etc/logwatch/conf/logfiles/layer7.conf' }  
+                                                        # logwatch hapee 'layer 7' logfiles configuration file
+    - { src: 'layer7-services.conf.j2', dest: '/etc/logwatch/conf/services/layer7.conf' }  
+                                                        # logwatch hapee 'layer 7' service configuration file
+    - { src: 'layer7-script-services.j2', dest: '/etc/logwatch/scripts/services/layer7' }  
+                                                        # logwatch hapee 'layer 7' service script
+    - { src: 'logwatch.cron.j2', dest: '/etc/cron.d/logwatch.cron' }  
+                                                        # logwatch hapee 'layer 7' cron job
+
+- name: Disable logwatch daily email notifications
+  file: path=/etc/cron.daily/0logwatch
+        state=touch
+        mode="a-x"
+

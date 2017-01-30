@@ -1,0 +1,22 @@
+---
+
+# hapee config
+hapee:
+  version: "1.6"
+  release: "r2"
+  vendor_key: "7cd46fa3a2da63bd"     # Key provided as part of the Business Subscription
+  user: "hapee-lb"
+  group: "hapee"
+  
+  # Default config
+  default:
+    frontend_port: "80"
+    backend_port: "80"
+
+  # Virtual IP high-availability Keepalived config
+  keepalived:
+    interface: "{{ ansible_default_ipv4.interface }}"
+
+  # Logwatch config
+  logwatch:
+    version: "7.4.0"

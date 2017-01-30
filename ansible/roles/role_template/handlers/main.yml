@@ -1,0 +1,51 @@
+---
+
+# Handler to handle YUM repo configuration changes
+- name: update yum cache
+  # command: yum clean all
+  yum: 
+     name: '*'
+     update_cache: yes
+     state: latest
+
+# read new config file in /etc/sysctl.d/
+- name: reload sysctl
+  shell: /sbin/sysctl --system
+
+- name: Restart snmpd service
+  systemd:
+        daemon_reload: yes
+        name: snmpd
+        enabled: yes  
+        masked: no
+        state: restarted
+  listen: "restart snmpd"
+
+# Handlers group listening to "restart hapee" requires Ansible 2.2
+# start order log , lb , vrrp
+# stop order vrrp , lb , log
+
+- name: Restart hapee-log service
+  # systemd:
+  #       daemon_reload: yes
+  #       name: name=hapee-{{ hapee.version }}-log
+  #       state: restarted
+  service: name=hapee-{{ hapee.version }}-log
+           state=restarted  
+  listen: "restart hapee"
+
+- name: Restart hapee-lb service
+  systemd:
+        daemon_reload: yes
+        name: hapee-{{ hapee.version }}-lb
+        state: restarted
+  listen: "restart hapee"
+
+- name: Restart hapee-vrrp service
+  # systemd:
+  #       daemon_reload: yes
+  #       name: hapee-{{ hapee.version }}-vrrp
+  #       state: restarted
+  service: name=hapee-{{ hapee.version }}-vrrp
+           state=restarted
+  listen: "restart hapee"

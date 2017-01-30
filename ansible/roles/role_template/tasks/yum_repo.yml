@@ -1,0 +1,20 @@
+---
+# Install HAPEE Repos IBP and Vendor with subscription key [in Disabled state]
+- name: Copy HAPEE repos
+  template: 
+          src="{{ item.src }}" 
+          dest="{{ item.dest }}"
+          owner=root group=root mode=0644
+  with_items:
+    - { src: 'hapee.repo.DISABLED.j2', dest: '/etc/yum.repos.d/hapee.repo.DISABLED' }
+    - { src: 'hapee-ibp.repo.j2', dest: '/etc/yum.repos.d/hapee-ibp.repo' }
+
+# Install YUM GPG keys
+- name: Copy HAProxy RPM key
+  copy: 
+      src=RPM-GPG-KEY-HAProxy 
+      dest=/etc/pki/rpm-gpg/RPM-GPG-KEY-HAProxy 
+      owner=root group=root mode=0644
+  notify: update yum cache
+
+- meta: flush_handlers

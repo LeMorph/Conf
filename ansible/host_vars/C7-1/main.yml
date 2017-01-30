@@ -1,0 +1,7 @@
+---
+# Host Vars for C7-1
+hapee:
+  keepalived:
+    name: "something"
+    priority: "101"
+    state: "BACKUP"

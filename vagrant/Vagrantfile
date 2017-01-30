@@ -1,0 +1,80 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+# 
+# Created by Arnold Lasrado
+#  
+# Auto-install Plugins 
+# vagrant-hostsupdater updates hosts file, on VM up and down unless config'ed otherwise
+# + See `https://github.com/cogitatio/vagrant-hostsupdater` for detail on config options
+#
+plugins = %x{vagrant plugin list}
+puts %x{vagrant plugin install vagrant-vbguest} unless plugins.include? 'vagrant-vbguest'
+puts %x{vagrant plugin install vagrant-persistent-storage} unless plugins.include? 'vagrant-persistent-storage'
+puts %x{vagrant plugin install vagrant-hostsupdater} unless plugins.include? 'vagrant-hostsupdater'
+
+# Variables
+
+# Number of hosts of type Tmplt7-x
+N7_hosts = 3
+# Use `FourthOctet` as starting point for 4th octet in defined networks 
+# + for HostOnly 172.31.0/24 and IntNet Private Networks 172.31.1/24 172.31.2/24 172.31.3/24 
+# + added to iterator i ranging from 1 to N7_hosts to define final 4th octet 
+# + eg. for host Tmplt7-2 , HostOnly ip is 172.31.0.(50+2)/24
+FourthOctet = 50
+# Centos7 default image does key based ssh auth, with passwd disabled by default
+# + create custom user , add users pub RSA to authoorized_keys via inline script provisioner
+# See vagrant up --provision [vmname]
+USER_NAME = "XXXuser"
+ID_RSA_PUB = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCs/4xVC6bZHC7802BpHoIwjC8iFOrcU7cjbIQTSWNWC3KU0ratVK14Jl7tBw/vggNVj1gp2LYRwswWnFBXp9OU7oKoqMXyHVBcXhY+S4cFpazjMBn2PoXA4HYsFAf62i646P/gdPdk0IJqFyiqiTDs6k7q6nNncnch92VBJLtrQkTu9kwliH4ySZcinbYS4NXqm/tqD3c4WltBcr65VT+1KK5O5OjVtqMNCbjkrNJbDSabRajXtx9oXP2jZu7Hs6jS0/cYyorXwSTcNFdUg8n7MXZbyPvA9C+7Clgsvvx7vFqrQT1ef7OgG6l4UJJxktDAgcpQGYzh10IvvNLP58rD"
+
+#
+# Create default User inline script provisioner
+#
+$create_default_user = <<SCRIPT
+/sbin/userdel -rZ $1
+/sbin/useradd $1
+mkdir /home/$1/.ssh
+echo $2 > /home/$1/.ssh/authorized_keys
+echo ""> /home/$1/.ssh/id_rsa
+chown -R $1:$1 /home/$1/.ssh
+chmod -R 700 /home/$1/.ssh
+chmod 600 /home/$1/.ssh/*
+echo "# User rules for default user $1" > /etc/sudoers.d/90-create_default_user_rule
+echo "$1 ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/90-create_default_user_rule
+SCRIPT
+#
+# End script definition
+#
+Vagrant.configure(2) do |config|
+    config.vm.box = "centos/7"
+    config.ssh.insert_key = true
+    config.hostsupdater.remove_on_suspend = true
+    config.vm.synced_folder ".", "/vagrant", disabled: true
+    # shell provisioner restart Networking to activate private networks
+    config.vm.provision "shell", inline: "service network restart" , run: "always"
+    # shell provisioner add user USER_NAME
+    config.vm.provision "shell", inline: $create_default_user, args: [USER_NAME, ID_RSA_PUB]
+    #
+    config.vm.provider :virtualbox do |vb|
+       vb.customize ["modifyvm", :id, "--memory", "1024"]
+       vb.customize ["modifyvm", :id, "--cpus", "2"]
+       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    end
+
+    (1..(N7_hosts)).each do |i|
+        config.vm.define "Tmplt7-#{i}" do |node|
+            node.vm.provider :virtualbox do |al1|
+                al1.name = "Tmplt7-#{i}"
+            end
+        node.vm.hostname = "Tmplt7-#{i}"
+        node.vm.hostname = "Tmplt7-#{i}"
+        node.vm.network "private_network", ip: "172.31.0.#{FourthOctet + i}", prefix: "24" # vboxnet0 Hostonly
+        node.vm.network "private_network", hostsupdater: "skip", ip: "172.31.1.#{FourthOctet + i}", prefix: "24", virtualbox__intnet: "Net_172.31.1.0/24"
+        node.vm.network "private_network", hostsupdater: "skip", ip: "172.31.2.#{FourthOctet + i}", prefix: "24", virtualbox__intnet: "Net_172.31.2.0/24"
+        # node.vm.network "private_network", hostsupdater: "skip", ip: "172.31.3.#{FourthOctet + i}", prefix: "24", virtualbox__intnet: "Net_172.31.3.0/24"
+        # node.vm.network "public_network", bridge: "eno1" # "en0: Wi-Fi (AirPort)"
+        end
+    end
+end
+
+# type: "dhcp", ip: "172.31.1.12", prefix: "24", DNS1: "10.0.2.3", gateway: "172.31.1.1"

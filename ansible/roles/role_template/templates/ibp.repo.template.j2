@@ -1,0 +1,46 @@
+# Maintained via Ansible , last update on  {{ ansible_date_time.weekday }} {{ ansible_date_time.date }} at {{ ansible_date_time.time }} {{ ansible_date_time.tz }}.
+
+# hapee-ibp.repo
+
+[ibp-hapee-base]
+name=Ifbyphone base HAPEE Packages for CentOS$releasever - $basearch
+baseurl=http://mirror.mydomain.com/mrepo/hapee-x86_64/RPMS.common
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-HAProxy
+
+[ibp-hapee-plus]
+name=Ifbyphone plus HAPEE Packages for CentOS$releasever - $basearch
+baseurl=http://mirror.mydomain.com/mrepo/hapee-x86_64/RPMS.plus
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-HAProxy
+
+[ibp-hapee-rhi]
+name=Ifbyphone rhi HAPEE Packages for CentOS$releasever - $basearch
+baseurl=http://mirror.mydomain.com/mrepo/hapee-x86_64/RPMS.rhi
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-HAProxy
+
+[ibp-hapee-sanitize]
+name=Ifbyphone sanitize HAPEE Packages for CentOS$releasever - $basearch
+baseurl=http://mirror.mydomain.com/mrepo/hapee-x86_64/RPMS.sanitize
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-HAProxy
+
+[ibp-hapee-antibot]
+name=Ifbyphone antibot HAPEE Packages for CentOS$releasever - $basearch
+baseurl=http://mirror.mydomain.com/mrepo/hapee-x86_64/RPMS.antibot
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-HAProxy
+
+[ibp-hapee-fingerprint]
+name=Ifbyphone fingerprint HAPEE Packages for CentOS$releasever - $basearch
+baseurl=http://mirror.mydomain.com/mrepo/hapee-x86_64/RPMS.fingerprint
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-HAProxy
+

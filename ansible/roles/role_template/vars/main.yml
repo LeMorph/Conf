@@ -1,0 +1,21 @@
+---
+
+# hapee config
+hapee:
+  # Stats UI config
+  stats:
+    username: "admin"
+    password: "xxx"
+
+  # SSL certificates
+  ssl:
+    - domain: "xxx.com"
+      cert: |
+        
+
+    - domain: "xxx.com"
+      cert: |
+        
+
+    - domain: "xxx.com"
+      cert: |

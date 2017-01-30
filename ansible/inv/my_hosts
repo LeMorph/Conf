@@ -1,0 +1,18 @@
+
+
+# The group_var ## variables all of the groups you are a member of
+# The host_var ## variables all of the groups you are a member of
+## host and group variables can be stored in individual files relative to the inventory file
+
+[group-local-host]  
+localhost     
+
+[group-local-vm]
+C7-1
+
+## It is also possible to make groups of groups using the :children suffix
+
+[local:children]
+group-local-host
+group-local-vm
+

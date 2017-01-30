@@ -1,0 +1,16 @@
+# Maintained via Ansible , last update on  {{ ansible_date_time.weekday }} {{ ansible_date_time.date }} at {{ ansible_date_time.time }} {{ ansible_date_time.tz }}.
+
+/var/log/hapee/*.log {
+    daily
+    rotate 10
+    missingok
+    notifempty
+    compress
+    dateext
+    dateyesterday
+    sharedscripts
+    postrotate
+        /bin/kill -HUP `cat /var/run/syslogd.pid 2> /dev/null` 2> /dev/null || true
+        /bin/kill -HUP `cat /var/run/rsyslogd.pid 2> /dev/null` 2> /dev/null || true
+    endscript
+}
