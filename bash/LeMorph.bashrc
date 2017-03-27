@@ -5,6 +5,8 @@ umask 0027
 # alias lock='pyxtrlock'
 # alias lock='xtrlock'
 
+alias git='hub'
+
 alias cp='cp'
 alias mv='mv'
 alias rm='rm'
@@ -15,8 +17,8 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 
-# alias ls='ls -G'   # mac osX
-# alias sublime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'  # mac osX
+alias ls='ls -G'   # mac osX
+alias sublime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'  # mac osX
 
 alias ls='ls --color=auto'  # GNU/linux
 alias ll='ls -la'
@@ -75,13 +77,15 @@ export EDITOR=vim
 export TERM=xterm-256color
 set -o vi
 
+alias mosh='mosh --ssh="ssh -oStrictHostKeyChecking=no"'
 alias ssh='ssh -oStrictHostKeyChecking=no'
 alias scp='scp -oStrictHostKeyChecking=no'
 alias ansible='ansible --ssh-common-args=-oStrictHostKeyChecking=no'
 alias ansible-playbook='ansible-playbook --ssh-common-args=-oStrictHostKeyChecking=no'
+
 # gc () { gcc -g -Wall $1 -o $(echo $1 | cut -d . -f 1) && ./$(echo $1 | cut -d . -f 1) ; }
+pipU () { pip$1 freeze --local | tee pre_upgrade.txt | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip$1 install -U ; pip$1 install Jinja2==2.8.1; }       # use as pipU and pipU 3.6
 
 ###### End LeMorph  bashrc #######
-
 
 
