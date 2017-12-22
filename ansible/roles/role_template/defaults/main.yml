@@ -4,7 +4,6 @@
 hapee:
   version: "1.6"
   release: "r2"
-  vendor_key: "7cd46fa3a2da63bd"     # Key provided as part of the Business Subscription
   user: "hapee-lb"
   group: "hapee"
   

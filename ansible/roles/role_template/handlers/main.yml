@@ -12,6 +12,13 @@
 - name: reload sysctl
   shell: /sbin/sysctl --system
 
+- name: Restart rsyslog service
+  systemd:
+        daemon_reload: yes
+        name: rsyslog
+        state: restarted
+  listen: "restart rsyslog"  
+
 - name: Restart snmpd service
   systemd:
         daemon_reload: yes

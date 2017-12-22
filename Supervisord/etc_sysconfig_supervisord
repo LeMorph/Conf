@@ -1,0 +1,7 @@
+# Maintained via Ansible, last update on  {{ ansible_date_time.weekday }} {{ ansible_date_time.date }} at {{ ansible_date_time.time }} {{ ansible_date_time.tz }}.
+
+
+# Options for supervisord
+
+OPTIONS="-c /etc/supervisord.conf"
+PIDFILE="/var/run/supervisord.pid"

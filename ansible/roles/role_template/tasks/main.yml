@@ -1,7 +1,6 @@
 ---
 # Hapee main role file
 
-# - { include: yum_repo.yml, tags: ["install_yum_repo"] }
-# - { include: hapee.yml, tags: ["install_hapee"] }
-# - { include: logwatch.yml, tags: ["install_logwatch"] }
-- { include: template.yml, tags: ["template"] }
+- { include: yum_repo.yml, tags: ["install_yum_repo"] }
+- { include: hapee.yml, tags: ["install_hapee"] }
+- { include: logwatch.yml, tags: ["install_logwatch"] }

@@ -94,11 +94,26 @@
   tags: ['log_config']
   notify: Restart hapee-log service
 
+- name: Instantiate hapee rsyslog configuration file
+  template: src=rsyslog-hapee.conf.j2
+            dest=/etc/rsyslog.d/hapee.conf
+            mode=0644
+            owner=root
+            group=root
+  tags: ['log_config']
+  notify: Restart rsyslog service  
+
 - name: Remove default logging directory  
   file:
     path: /var/log/hapee-{{ hapee.version }}
     state: absent
   tags: ['log_config']    
+
+- name: Remove default cert  
+  file:
+    path: /etc/hapee-{{ hapee.version }}/certs/ssl.pem
+    state: absent
+  tags: ['base_config']  
 
 - name: Update snmpd config 
   lineinfile:

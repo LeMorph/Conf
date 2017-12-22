@@ -1,0 +1,5 @@
+# Maintained via Ansible , last update on  {{ ansible_date_time.weekday }} {{ ansible_date_time.date }} at {{ ansible_date_time.time }} {{ ansible_date_time.tz }}.
+
+MAILTO="{{ hapee.logwatch.notification.to }}"
+
+* * * * * root /bin/nice -n 19 /usr/sbin/logwatch --service layer7 --range '-1 minutes for that minute'

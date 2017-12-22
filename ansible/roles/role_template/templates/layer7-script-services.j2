@@ -1,0 +1,11 @@
+# Maintained via Ansible , last update on  {{ ansible_date_time.weekday }} {{ ansible_date_time.date }} at {{ ansible_date_time.time }} {{ ansible_date_time.tz }}.
+
+
+use strict;
+my $find = "failed | UP | DOWN | started";
+my @lines = <STDIN>;
+for (@lines) {
+    if ($_ =~ /$find/) {
+        print "$_\n";
+    }
+}

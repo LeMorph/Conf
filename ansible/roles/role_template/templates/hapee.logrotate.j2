@@ -2,7 +2,7 @@
 
 /var/log/hapee/*.log {
     daily
-    rotate 10
+    rotate 30
     missingok
     notifempty
     compress
@@ -12,5 +12,7 @@
     postrotate
         /bin/kill -HUP `cat /var/run/syslogd.pid 2> /dev/null` 2> /dev/null || true
         /bin/kill -HUP `cat /var/run/rsyslogd.pid 2> /dev/null` 2> /dev/null || true
+        /usr/bin/systemctl restart hapee-{ hapee.version }}-log 2> /dev/null || true
     endscript
 }
+

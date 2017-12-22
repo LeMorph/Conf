@@ -1,0 +1,290 @@
+---
+
+# Vault Encrypted Common Vars duplicated by group_var location for vault password sanity
+# hapee config
+hapee:
+  vendor_key: "0e26b280dc574b60"     # Key provided as part of the Business Subscription
+  # Stats UI config
+  stats:
+    username: "admin_dev"
+    password: "mylbDEVadmin"
+
+  # SSL certificates
+  # order
+  # ssl:
+  #   - domain: "dialogtech.com"
+  #     cert: |
+  #     PRIVATE KEY-----
+  #     STAR CERTIFICATE-----
+  #     INTERMEDIATE CERTIFICATE-----
+
+  ssl:
+    - domain: "dialogtech.com"
+      cert: |
+        Bag Attributes
+            localKeyID: 13 45 E0 F6 56 9E 8A F0 F2 D8 CE E0 C1 EC 2A 4A 7C E8 DD 0B
+        subject=/C=US/ST=Illinois/L=Chicago/O=DialogTech Inc/OU=Network Operations/CN=*.dialogtech.com
+        issuer=/C=US/O=GeoTrust Inc./CN=GeoTrust SSL CA - G3
+        -----BEGIN CERTIFICATE-----
+        MIIFCjCCA/KgAwIBAgIQVWFlPFkbKlSUTgBzBZKgfDANBgkqhkiG9w0BAQsFADBE
+        MQswCQYDVQQGEwJVUzEWMBQGA1UEChMNR2VvVHJ1c3QgSW5jLjEdMBsGA1UEAxMU
+        R2VvVHJ1c3QgU1NMIENBIC0gRzMwHhcNMTUwMzAzMDAwMDAwWhcNMTgwMzAyMjM1
+        OTU5WjCBgzELMAkGA1UEBhMCVVMxETAPBgNVBAgTCElsbGlub2lzMRAwDgYDVQQH
+        FAdDaGljYWdvMRcwFQYDVQQKFA5EaWFsb2dUZWNoIEluYzEbMBkGA1UECxQSTmV0
+        d29yayBPcGVyYXRpb25zMRkwFwYDVQQDFBAqLmRpYWxvZ3RlY2guY29tMIIBIjAN
+        BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAktC2c/M05PdIIzjK1X0XquIC0/8E
+        ApF8LePSpks/kzLN+pzuKaBUD31ecn/EDVpRVC8/5KZhwcpbjnIcRMOw6c6FXdNj
+        fcbnXzqG2Oq4HgR1pYYYPufPBfrFR7zzLP4yrpNnYYdt2maE73hDX9xqVJA2ml9o
+        FR3A6To6D3b0PtCDls99YfBW/G0/sOaSWCpiLxSlhnvFAbJ3ufXWS7t4mljZWQg/
+        RtwuQ8gTmMMjBJud3OqkzzHDwEJTYgFhWlNepc/1nWfRcSh8yppdHcf/CjwfOvw3
+        ByfA5ChJc+j/3XHXni1jUK6jlXgxWPp2jC3r9yY8qBDO15aLdcDKsCv5VwIDAQAB
+        o4IBtjCCAbIwKwYDVR0RBCQwIoIQKi5kaWFsb2d0ZWNoLmNvbYIOZGlhbG9ndGVj
+        aC5jb20wCQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCBaAwKwYDVR0fBCQwIjAgoB6g
+        HIYaaHR0cDovL2duLnN5bWNiLmNvbS9nbi5jcmwwgaEGA1UdIASBmTCBljCBkwYK
+        YIZIAYb4RQEHNjCBhDA/BggrBgEFBQcCARYzaHR0cHM6Ly93d3cuZ2VvdHJ1c3Qu
+        Y29tL3Jlc291cmNlcy9yZXBvc2l0b3J5L2xlZ2FsMEEGCCsGAQUFBwICMDUMM2h0
+        dHBzOi8vd3d3Lmdlb3RydXN0LmNvbS9yZXNvdXJjZXMvcmVwb3NpdG9yeS9sZWdh
+        bDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwHwYDVR0jBBgwFoAU0m/3
+        lvSFP3I8MH0j2oV4m6N8WnwwVwYIKwYBBQUHAQEESzBJMB8GCCsGAQUFBzABhhNo
+        dHRwOi8vZ24uc3ltY2QuY29tMCYGCCsGAQUFBzAChhpodHRwOi8vZ24uc3ltY2Iu
+        Y29tL2duLmNydDANBgkqhkiG9w0BAQsFAAOCAQEA0gjTsh4wIOM6IYTgDj5BGo+Z
+        m7T4kOIvSPDFJvGIko2iLcfDf4Cpd2ukh2g26SIZ1RlyfJJDT09hURKmjBpm7xmS
+        +NYCHrAcRH4DBwaG9PMgOreFvapvIoRW1S29llS6lVxcQE741joNAix3xTLPiHt3
+        1Q8TMlOksUEgFZZZLVIjswPRv40vtXpafi2Vl4xqnzkoSF9MHNpiEedMNIY/L0CK
+        Jt2CoQhRwTk5gpAIXh71uQUssQuz0h4K7lJo8oXnKJyAljvUbK+SFyTC8rHx26G/
+        TSQ6DV2cBJCeHKnup0Ejl7+ZUHfxEdzF74nkn7UY2dcKOSTh8+SZQdvZs5B70Q==
+        -----END CERTIFICATE-----
+        Bag Attributes: <No Attributes>
+        subject=/C=US/O=GeoTrust Inc./CN=GeoTrust SSL CA - G3
+        issuer=/C=US/O=GeoTrust Inc./CN=GeoTrust Global CA
+        -----BEGIN CERTIFICATE-----
+        MIIETzCCAzegAwIBAgIDAjpvMA0GCSqGSIb3DQEBCwUAMEIxCzAJBgNVBAYTAlVT
+        MRYwFAYDVQQKEw1HZW9UcnVzdCBJbmMuMRswGQYDVQQDExJHZW9UcnVzdCBHbG9i
+        YWwgQ0EwHhcNMTMxMTA1MjEzNjUwWhcNMjIwNTIwMjEzNjUwWjBEMQswCQYDVQQG
+        EwJVUzEWMBQGA1UEChMNR2VvVHJ1c3QgSW5jLjEdMBsGA1UEAxMUR2VvVHJ1c3Qg
+        U1NMIENBIC0gRzMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDjvn4K
+        hqPPa209K6GXrUkkTdd3uTR5CKWeop7eRxKSPX7qGYax6E89X/fQp3eaWx8KA7UZ
+        U9ulIZRpY51qTJEMEEe+EfpshiW3qwRoQjgJZfAU2hme+msLq2LvjafvY3AjqK+B
+        89FuiGdT7BKkKXWKp/JXPaKDmJfyCn3U50NuMHhiIllZuHEnRaoPZsZVP/oyFysx
+        j0ag+mkUfJ2fWuLrM04QprPtd2PYw5703d95mnrU7t7dmszDt6ldzBE6B7tvl6QB
+        I0eVH6N3+liSxsfQvc+TGEK3fveeZerVO8rtrMVwof7UEJrwEgRErBpbeFBFV0xv
+        vYDLgVwts7x2oR5lAgMBAAGjggFKMIIBRjAfBgNVHSMEGDAWgBTAephojYn7qwVk
+        DBF9qn1luMrMTjAdBgNVHQ4EFgQU0m/3lvSFP3I8MH0j2oV4m6N8WnwwEgYDVR0T
+        AQH/BAgwBgEB/wIBADAOBgNVHQ8BAf8EBAMCAQYwNgYDVR0fBC8wLTAroCmgJ4Yl
+        aHR0cDovL2cxLnN5bWNiLmNvbS9jcmxzL2d0Z2xvYmFsLmNybDAvBggrBgEFBQcB
+        AQQjMCEwHwYIKwYBBQUHMAGGE2h0dHA6Ly9nMi5zeW1jYi5jb20wTAYDVR0gBEUw
+        QzBBBgpghkgBhvhFAQc2MDMwMQYIKwYBBQUHAgEWJWh0dHA6Ly93d3cuZ2VvdHJ1
+        c3QuY29tL3Jlc291cmNlcy9jcHMwKQYDVR0RBCIwIKQeMBwxGjAYBgNVBAMTEVN5
+        bWFudGVjUEtJLTEtNTM5MA0GCSqGSIb3DQEBCwUAA4IBAQCg1Pcs+3QLf2TxzUNq
+        n2JTHAJ8mJCi7k9o1CAacxI+d7NQ63K87oi+fxfqd4+DYZVPhKHLMk9sIb7SaZZ9
+        Y73cK6gf0BOEcP72NZWJ+aZ3sEbIu7cT9clgadZM/tKO79NgwYCA4ef7i28heUrg
+        3Kkbwbf7w0lZXLV3B0TUl/xJAIlvBk4BcBmsLxHA4uYPL4ZLjXvDuacu9PGsFj45
+        SVGeF0tPEDpbpaiSb/361gsDTUdWVxnzy2v189bPsPX1oxHSIFMTNDcFLENaY9+N
+        QNaFHlHpURceA1bJ8TCt55sRornQMYGbaLHZ6PPmlH7HrhMvh+3QJbBo+d4IWvMp
+        zNSS
+        -----END CERTIFICATE-----
+        Bag Attributes: <No Attributes>
+        subject=/C=US/O=GeoTrust Inc./CN=GeoTrust Global CA
+        issuer=/C=US/O=GeoTrust Inc./CN=GeoTrust Global CA
+        -----BEGIN CERTIFICATE-----
+        MIIDVDCCAjygAwIBAgIDAjRWMA0GCSqGSIb3DQEBBQUAMEIxCzAJBgNVBAYTAlVT
+        MRYwFAYDVQQKEw1HZW9UcnVzdCBJbmMuMRswGQYDVQQDExJHZW9UcnVzdCBHbG9i
+        YWwgQ0EwHhcNMDIwNTIxMDQwMDAwWhcNMjIwNTIxMDQwMDAwWjBCMQswCQYDVQQG
+        EwJVUzEWMBQGA1UEChMNR2VvVHJ1c3QgSW5jLjEbMBkGA1UEAxMSR2VvVHJ1c3Qg
+        R2xvYmFsIENBMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2swYYzD9
+        9BcjGlZ+W988bDjkcbd4kdS8odhM+KhDtgPpTSEHCIjaWC9mOSm9BXiLnTjoBbdq
+        fnGk5sRgprDvgOSJKA+eJdbtg/OtppHHmMlCGDUUna2YRpIuT8rxh0PBFpVXLVDv
+        iS2Aelet8u5fa9IAjbkU+BQVNdnARqN7csiRv8lVK83Qlz6cJmTM386DGXHKTubU
+        1XupGc1V3sjs0l44U+VcT4wt/lAjNvxm5suOpDkZALeVAjmRCw7+OC7RHQWa9k0+
+        bw8HHa8sHo9gOeL6NlMTOdReJivbPagUvTLrGAMoUgRx5aszPeE4uwc2hGKceeoW
+        MPRfwCvocWvk+QIDAQABo1MwUTAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTA
+        ephojYn7qwVkDBF9qn1luMrMTjAfBgNVHSMEGDAWgBTAephojYn7qwVkDBF9qn1l
+        uMrMTjANBgkqhkiG9w0BAQUFAAOCAQEANeMpauUvXVSOKVCUn5kaFOSPeCpilKIn
+        Z57QzxpeR+nBsqTP3UEaBU6bS+5Kb1VSsyShNwrrZHYqLizz/Tt1kL/6cdjHPTfS
+        tQWVYrmm3ok9Nns4d0iXrKYgjy6myQzCsplFAMfOEVEiIuCl6rYVSAlk6l5PdPcF
+        PseKUgzbFbS9bZvlxrFUaKnjaZC2mqUPuLk/IH2uSrW4nOQdtqvmlKXBx4Ot2/Un
+        hw4EbNX/3aBd7YdStysVAq45pmp06drE57xNNB6pXE0zX5IJL4hmXXeXxx12E6nV
+        5fEWCRE11azbJHFwLJhWC9kXtNHjUStedejV0NxPNO3CBWaAocvmMw==
+        -----END CERTIFICATE-----
+        Bag Attributes
+            localKeyID: 13 45 E0 F6 56 9E 8A F0 F2 D8 CE E0 C1 EC 2A 4A 7C E8 DD 0B
+        Key Attributes: <No Attributes>
+        -----BEGIN PRIVATE KEY-----
+        MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCS0LZz8zTk90gj
+        OMrVfReq4gLT/wQCkXwt49KmSz+TMs36nO4poFQPfV5yf8QNWlFULz/kpmHByluO
+        chxEw7DpzoVd02N9xudfOobY6rgeBHWlhhg+588F+sVHvPMs/jKuk2dhh23aZoTv
+        eENf3GpUkDaaX2gVHcDpOjoPdvQ+0IOWz31h8Fb8bT+w5pJYKmIvFKWGe8UBsne5
+        9dZLu3iaWNlZCD9G3C5DyBOYwyMEm53c6qTPMcPAQlNiAWFaU16lz/WdZ9FxKHzK
+        ml0dx/8KPB86/DcHJ8DkKElz6P/dcdeeLWNQrqOVeDFY+naMLev3JjyoEM7Xlot1
+        wMqwK/lXAgMBAAECggEAVAXU1akz9XI8O8Qt+V6dI/QzUCaboeinXBANp5RbLyAd
+        WDdl6jbSxQan/fl3N3kgIIDmHTLHscPhADX4TbZ9UmIaW6c2Qm6KTirNr+ktNCiz
+        N+b1i1LZXX+2ViciOPbGBLlhqiR6z0pq/C4kyQD5baoXReQiSit8Ez56qg0XHbcU
+        H1bbhAn/74G9ZnhATYYqniQW9dKgOnzOyStqeQHxg3PlyjQvqewFbZWmy2kiPAMN
+        xux7fZl+55qZe11CZytSIeq28tRv0IiYODevpbn1f9alm4NRXhNlPQ4Gf+bkwox+
+        dG6abfDvbaqIcMqiAPSHJJ8GN4lMWx0qBvqk1fJukQKBgQDDF8V1kIH2ayen/Bla
+        wyigGuxroh6i5k/l24Pxfbf2gk6ho/YyP/Ko+1N+uMdGUhofH/feX6Z8UYuU+zpe
+        g22zgNmemZ/1bvPC3udPkuIdpwFVq1HQWk5X3//EYxgroDIrGSqdLVDzsPjyBxAR
+        VvJ2wo+MArXMgtR2vhSNEqj/6QKBgQDApn81ufSCj7DJORnAdcOLL9RLKS/jKZTk
+        POguJcPS3qYyV4PYQJiB9jV4rAeJM4Y2fc/Ky+0D5QBT5fapJp6e91zkcKShEJIU
+        LlRdeo+H5Pq230cLbj+VjkEwlpq5+pxV3Wm1a0abn7YFOFOjMTAgg9LPJs8oVQHS
+        gpuNygSnPwKBgCYINE4+5ZcMPKba1naDJSBRH1W8PQy0qU6+BHLHd11u+bU5KX2S
+        SdP3aseBbhefWchHiyKmsuX5X6SjdTWHmZMswz/P4wcNoieTHLS+haYSMIhq5YAg
+        mrU2zb2TM9sNV7pfJZeOhgF7tow4JEG9GXddZm58+MPtnU2osIjv4lJBAoGBAKWL
+        bSzBynaW+xcu1g4oJAxq4UZk8h2GEce+/tUI5qlBYhdIVKdzepnS9Efpq+AeQmp4
+        2iIt8lGyawGtTrQz14JKlaxHj3BISP7GgQCC3OutvDOA0g/kgQcG4sXZ5MODsuum
+        A7w9nsMEDumVaWmGTxDhtjkD5GeIBLTcPscsnasJAoGAd91rh3WG2Jll2x+K2h0g
+        M0K6vEQ941JAOZuGLbR80R+aRo10PDS7MA4za6V5iu5ELlApLWueeH8uEdqSJqji
+        Sl6jod1WI8XtG/PHlsC7cWCZr2vq1BPLbyR1cb0SLzCDY+Z7cZcgwrPZChbm5nqv
+        Jpvwb7Qe93s/w6VjVi/8oZE=
+        -----END PRIVATE KEY-----
+
+    - domain: "ifbyphone.com"
+      cert: |
+        -----BEGIN RSA PRIVATE KEY-----
+        MIIEowIBAAKCAQEAx2YzFJjkHaqhHyKv+uzPUTdzEmqeiaDFiWyDBu7vMpap7ziA
+        E0B/IQ770vdpA1K/vKD8t50khHFqyl24HBzTIYWZCeOlK2CwMZzdGF/V1ENU5UY4
+        kqbpzOKcnX3eizfPXGfnbfoJ+fHEUXrwwWXPFm00Kxb0DH4FahV5CmYeHUUdLIn/
+        JbTC8gwAMgjDYoBR3WfnFWJJYqpSV7dVuP7NdMoAttG3aGToWzLFIJMXLZAYN78z
+        fJLTCi+D9Q3r0qhevX83adgyCJ1haIwRO2qHeq4gTjCv3HSa14YfdBmu7VIXhPf8
+        qg9TS3LMw3dz4vn8ZMTDoq7Dk3imgDTiRtTFCQIDAQABAoIBAEYzW+53eXBcX0dX
+        7f74mnCshe3I7bHkkUc1lde+DSaRVpirGqQsg9V+sffvNOB/pJNjVjXKtE2QpJlE
+        b4ouN8LIhz2tELx52O5OnKR1MRH+9oeVtlsjOpLwgVUNOGlpJ68PwbG9Yv/FN2m8
+        T8C2+DacEc7N0PQI9h0IHEol85o32Nnpiu4jvOFNSNcH4ctz47ObgP6E5elZoXvJ
+        vfFfrSSpAjRCoSUNd5QpHsE+a0pBPahYugcBw2WfQHhnuIhfr6AICHpeNUlwgkBp
+        xLIHYX8AFXpvEYrZKVnGS0lp5WapWvs7F6tItww8Pu2apTliIcpX/j4mBps0OvSN
+        gnrYzNECgYEA5FZoyZ2wH+wFUFPt+bEtxUy9Kdq1qlb/AfnnuMeoDvscYichbtEy
+        YHpZKdsOsyjrb2uPTKZA9zW/Nk6jN5aCrV/eomaWB9rIRxdcH+4ZPSCijzV9PzOS
+        X4oveBnnH8DoYyZP09qzwan+RF0MHe5BjViOIZFZpW8ubKgBhUZvKpUCgYEA345O
+        Vcnk5Ka9EZGP0nnzIOQ+tZ4cYO6JyTjW1sq7UQRpQIxq2F2x9qViC54h+zSJDjC3
+        dX3LF3k04yxM+wsoz4O7Z5h1mE2RKLsOwW2rnF0F+wckaXAI/CvHhlM6SJoJUDIT
+        UXKWF6wuV7dGXk9xLaiGd7+8OnRG9lJJitIjR6UCgYB2AMYEs+6KgMI6QjWxHcTG
+        uyLjV3kc//qnvcvoLZ6Hp3SCsTBRAeHkBDbCL8hIBLSvj0muVhkq6ObZnQgyuSDt
+        kqcPDK8qfgGU49ijU7xNX+lC02TX3cIeh96CVfig62PtoaYNmW/efQi/scqKSVAt
+        SP+jD2fh3DSEyMqIYt8ehQKBgQCBojCUmK1tVa7faCwhHew5T4F5qYTFRK2LjLUv
+        +oFieo9aCdLPQo22+7H+EKWd2Jn9K4zGyboiE3vym7bMAG2a38WlTggq2BfrqYTl
+        72WLF3onVb3skjXznKNnpg1vGjt6UH9ZRHv6oDKDVNiuSZzUoBvRhtJshw67OX5B
+        zJb+rQKBgH4irN7KZLmmEsnNhxD9p/k9C8z1Y4eBvGL/h/F9Sz4MK1Slmfhh/ver
+        yvhiarPCeeXmfS2lyqsXslmOu0LSBIogYjF+jUY6aKBB0TGjcHoYYsq3NyhV8d47
+        l5SvWZroGJKXIjuOFFk/VNXxo5ij28ki4EM81RbcUH0560p+kzel
+        -----END RSA PRIVATE KEY-----
+        -----BEGIN CERTIFICATE-----
+        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
+        3fPep5fjIrWhMv+UJ2OfkNCk
+        -----END CERTIFICATE-----
+        -----BEGIN CERTIFICATE-----
+        MIIETzCCAzegAwIBAgIDAjpvMA0GCSqGSIb3DQEBCwUAMEIxCzAJBgNVBAYTAlVT
+        MRYwFAYDVQQKEw1HZW9UcnVzdCBJbmMuMRswGQYDVQQDExJHZW9UcnVzdCBHbG9i
+        YWwgQ0EwHhcNMTMxMTA1MjEzNjUwWhcNMjIwNTIwMjEzNjUwWjBEMQswCQYDVQQG
+        EwJVUzEWMBQGA1UEChMNR2VvVHJ1c3QgSW5jLjEdMBsGA1UEAxMUR2VvVHJ1c3Qg
+        U1NMIENBIC0gRzMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDjvn4K
+        hqPPa209K6GXrUkkTdd3uTR5CKWeop7eRxKSPX7qGYax6E89X/fQp3eaWx8KA7UZ
+        U9ulIZRpY51qTJEMEEe+EfpshiW3qwRoQjgJZfAU2hme+msLq2LvjafvY3AjqK+B
+        89FuiGdT7BKkKXWKp/JXPaKDmJfyCn3U50NuMHhiIllZuHEnRaoPZsZVP/oyFysx
+        j0ag+mkUfJ2fWuLrM04QprPtd2PYw5703d95mnrU7t7dmszDt6ldzBE6B7tvl6QB
+        I0eVH6N3+liSxsfQvc+TGEK3fveeZerVO8rtrMVwof7UEJrwEgRErBpbeFBFV0xv
+        vYDLgVwts7x2oR5lAgMBAAGjggFKMIIBRjAfBgNVHSMEGDAWgBTAephojYn7qwVk
+        DBF9qn1luMrMTjAdBgNVHQ4EFgQU0m/3lvSFP3I8MH0j2oV4m6N8WnwwEgYDVR0T
+        AQH/BAgwBgEB/wIBADAOBgNVHQ8BAf8EBAMCAQYwNgYDVR0fBC8wLTAroCmgJ4Yl
+        aHR0cDovL2cxLnN5bWNiLmNvbS9jcmxzL2d0Z2xvYmFsLmNybDAvBggrBgEFBQcB
+        AQQjMCEwHwYIKwYBBQUHMAGGE2h0dHA6Ly9nMi5zeW1jYi5jb20wTAYDVR0gBEUw
+        QzBBBgpghkgBhvhFAQc2MDMwMQYIKwYBBQUHAgEWJWh0dHA6Ly93d3cuZ2VvdHJ1
+        c3QuY29tL3Jlc291cmNlcy9jcHMwKQYDVR0RBCIwIKQeMBwxGjAYBgNVBAMTEVN5
+        bWFudGVjUEtJLTEtNTM5MA0GCSqGSIb3DQEBCwUAA4IBAQCg1Pcs+3QLf2TxzUNq
+        n2JTHAJ8mJCi7k9o1CAacxI+d7NQ63K87oi+fxfqd4+DYZVPhKHLMk9sIb7SaZZ9
+        Y73cK6gf0BOEcP72NZWJ+aZ3sEbIu7cT9clgadZM/tKO79NgwYCA4ef7i28heUrg
+        3Kkbwbf7w0lZXLV3B0TUl/xJAIlvBk4BcBmsLxHA4uYPL4ZLjXvDuacu9PGsFj45
+        SVGeF0tPEDpbpaiSb/361gsDTUdWVxnzy2v189bPsPX1oxHSIFMTNDcFLENaY9+N
+        QNaFHlHpURceA1bJ8TCt55sRornQMYGbaLHZ6PPmlH7HrhMvh+3QJbBo+d4IWvMp
+        zNSS
+        -----END CERTIFICATE-----
+
+    - domain: "myphoneassistant.com"
+      cert: |
+        -----BEGIN CERTIFICATE-----
+        MIIEPzCCAyegAwIBAgIDCjMgMA0GCSqGSIb3DQEBCwUAMEcxCzAJBgNVBAYTAlVT
+        MRYwFAYDVQQKEw1HZW9UcnVzdCBJbmMuMSAwHgYDVQQDExdSYXBpZFNTTCBTSEEy
+        NTYgQ0EgLSBHMzAeFw0xNjAyMTAwMzM1NDJaFw0xOTAyMTIwMjI5MTZaMCYxJDAi
+        BgNVBAMTG3NlY3VyZS5teXBob25lYXNzaXN0YW50LmNvbTCCASIwDQYJKoZIhvcN
+        AQEBBQADggEPADCCAQoCggEBANb9b5RBpg8BH6JjXXqRDycno+0R1QwnQAg6VEMY
+        kuKPTTlyWocstKlroVgshh3o4XCAlu+97FMnJUEe4AxnXA/QbyS251B2ZU4RBx9p
+        JTNefV7PEH0vtI2qOnSeJKDFRSelaz6f4tEosgn3S9IF8+CW+Oxfo3/fBdZBjLk3
+        3h6+lo/cYKFvaaiedW5kcVYfGqOgQhe3q8NRjzJjwjFqCn+uw6xNZIc2+Eer4K1H
+        enJ/a8it6qtwUTX0AenKJoOEzYrIvZ0dKAxpKjr5cUbWjwntl1GZdo24pES27dM3
+        IN0Jkvr7vivAVjL4P/4qKzli+w9o09TDsPz7Aq/HHVFggpcCAwEAAaOCAVMwggFP
+        MB8GA1UdIwQYMBaAFMOc8/zTRgg0u85Gf6B8W/PiCMtZMFcGCCsGAQUFBwEBBEsw
+        STAfBggrBgEFBQcwAYYTaHR0cDovL2d2LnN5bWNkLmNvbTAmBggrBgEFBQcwAoYa
+        aHR0cDovL2d2LnN5bWNiLmNvbS9ndi5jcnQwDgYDVR0PAQH/BAQDAgWgMB0GA1Ud
+        JQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAmBgNVHREEHzAdghtzZWN1cmUubXlw
+        aG9uZWFzc2lzdGFudC5jb20wKwYDVR0fBCQwIjAgoB6gHIYaaHR0cDovL2d2LnN5
+        bWNiLmNvbS9ndi5jcmwwDAYDVR0TAQH/BAIwADBBBgNVHSAEOjA4MDYGBmeBDAEC
+        ATAsMCoGCCsGAQUFBwIBFh5odHRwczovL3d3dy5yYXBpZHNzbC5jb20vbGVnYWww
+        DQYJKoZIhvcNAQELBQADggEBAHDROttGJkBF5yUiAcfo6bjpTLg56oWwK+87Qfkd
+        yIIh0xXYN/8uO0OFoA249KMh5/A/Hz/HAPs+uflOfBjQZCPexFnHBvJ2/89M98r7
+        mq6iJlbXP80U+LkmBk76iFIPX5KqsaoEHNwb3I1RTZ6AykiHgVsztseDuGYf+1XL
+        SREDa14WdDWvpNXvuxTfdv/FNhHeM16oO6VCqy1dE6htgijrBiE1R8KXTv08rkjL
+        qcMrTligWl/+J8cmdezFHYcD/ZGbaxh7vw/D+sv5I6ZydCd8thRnA44ME1MtwIgV
+        ahKLcCopJcTyP/m/kWTelNFfmH4bJHVCTY6FlXgmVmJTkS0=
+        -----END CERTIFICATE-----
+        -----BEGIN RSA PRIVATE KEY-----
+        MIIEowIBAAKCAQEA1v1vlEGmDwEfomNdepEPJyej7RHVDCdACDpUQxiS4o9NOXJa
+        hyy0qWuhWCyGHejhcICW773sUyclQR7gDGdcD9BvJLbnUHZlThEHH2klM159Xs8Q
+        fS+0jao6dJ4koMVFJ6VrPp/i0SiyCfdL0gXz4Jb47F+jf98F1kGMuTfeHr6Wj9xg
+        oW9pqJ51bmRxVh8ao6BCF7erw1GPMmPCMWoKf67DrE1khzb4R6vgrUd6cn9ryK3q
+        q3BRNfQB6comg4TNisi9nR0oDGkqOvlxRtaPCe2XUZl2jbikRLbt0zcg3QmS+vu+
+        K8BWMvg//iorOWL7D2jT1MOw/PsCr8cdUWCClwIDAQABAoIBABJ2WSqmKJiJRCox
+        1kk8Q8zc/prROTZ9+GW8fJf2eEa0f7E7PML299zEvWpRCINxCEsc/9k+uhi5990L
+        xbnK9oD1KVZBzsN+J1z44V+1K9ipeKK3rXbSrfKsd7CkFAkqZ7Hr5rXODTBhCkkI
+        z54NnM/gpyfFXskQYfPwVSFixtRk6TVFjMl2Iv3yBNIW8zU7Zn9vcnarpt6vpUy9
+        nbkjCC99x3S52YbU1BmDybOrR5gub7FYOGUxPpZ5Ve7vFrSvPVo1pRX4oy1q1BvK
+        FD32ShwBVtL4voIhohqb2YX9iEjwzlPYjeQXRq7urAdI9o72oUkyKMg2YBwzv0yH
+        04tDbaECgYEA+Flxe7tXyOuXH742AeQfHgmGHB65TKitUq6NC5vUPAyHrSuRzva0
+        vVyFXV8//SJzbw0tx23Mv1Dwaomf2Mp2gu6Peczoj3ViDBOB9Za480zYwbyrWuTk
+        EM3EHLM0nmBhCYTauFn+3LGMBBfvESjogeq3diGAxLxPOg6OX+kEou0CgYEA3Zzp
+        Em486A7b58l7haJ2FTfDF1INOJtYjAIo12Q+OsaTwiWzHLhuFSYbRI7CBONU9DDc
+        TkxNVjqIZPbFbh6tCfP3y77XkZUd+UgeJULVAhITbpXcByaMsjPnKo84/Y2Ho0Sw
+        rqMfx3XmAQqTQzAVTJL6az0Ir11s2kQatxS1txMCgYAMOJKODS0HtRgttrV/qFMj
+        rkJMNfLWY+KLlA1ayeNKxS8UBXXaYmeIffoOGzbR5RUbHOHo021k6L278GPOTkBA
+        ty6WRtAW5ybZA0i85hrZ1ilAd2FTSroyXX3OD7+CH6oGxuPgeIVDJPWH6gmYpZOz
+        ePJoPMPSapXXfInjDFtvDQKBgHYeczAKp9X8TYOepYLV0+B9RzO/3SIl0q1VXVVo
+        ra6ANzNNCsmtF6eYFwKUoJ8gWCCLhnEJRFNIgXhm+1Y1bX+XlKT5REbpVv+OS9sK
+        YyRmZAsWPx9kkatN9NF/Yx3p+LiyHQYIFiEnGv/FFjbCgye8U1MjReTKhAFWOXMJ
+        y80XAoGBAKjFziy0TnqGxp5Rdu92ltmwasWiy4HAP7Jl8cAeQ3FvpoOjDzcm0xV2
+        IWa3gicIrFW4CVD51Mrezdp+XSStxifV3hxfHUgVGRdnaX+IQHPihsFGLbutTDki
+        xUB2K2MHJGoQmof1MWjRvM4TnlyRQI7RzKdaBpDCf/czmdcpyHGB
+        -----END RSA PRIVATE KEY-----

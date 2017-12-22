@@ -1,5 +1,4 @@
-# Maintained via Ansible 
-# last update on  {{ ansible_date_time.weekday }} {{ ansible_date_time.date }} at {{ ansible_date_time.time }} {{ ansible_date_time.tz }}.
+# Maintained via Ansible , last update on  {{ ansible_date_time.weekday }} {{ ansible_date_time.date }} at {{ ansible_date_time.time }} {{ ansible_date_time.tz }}.
 
 global_defs {
   notification_email {
@@ -8,7 +7,7 @@ global_defs {
   notification_email_from {{ hapee.keepalived.notification.from }}
   smtp_server {{ hapee.keepalived.notification.server }}
   smtp_connect_timeout 30
-  router_id hapee
+  router_id {{ ansible_hostname }}
 }
 
 vrrp_script chk_service_status {

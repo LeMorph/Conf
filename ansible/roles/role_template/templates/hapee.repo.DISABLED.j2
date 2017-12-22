@@ -1,0 +1,58 @@
+# Maintained via Ansible , last update on  {{ ansible_date_time.weekday }} {{ ansible_date_time.date }} at {{ ansible_date_time.time }} {{ ansible_date_time.tz }}.
+
+[hapee-base]
+name=hapee-base
+enabled=1
+baseurl=http://www.haproxy.com/download/hapee/key/{{ hapee.vendor_key|default("7cd46fa3a2da63bd") }}-common/rhel-{{ ansible_distribution_major_version }}/$basearch/bin/
+gpgcheck=1
+
+[hapee-base-source]
+name=hapee-base-source
+enabled=1
+baseurl=http://www.haproxy.com/download/hapee/key/{{ hapee.vendor_key|default("7cd46fa3a2da63bd") }}-common/rhel-{{ ansible_distribution_major_version }}/$basearch/source/
+gpgcheck=1
+
+[hapee-plus]
+name=hapee-plus
+enabled=1
+baseurl=http://www.haproxy.com/download/hapee/key/{{ hapee.vendor_key|default("7cd46fa3a2da63bd") }}-plus/rhel-{{ ansible_distribution_major_version }}/$basearch/bin/
+gpgcheck=1
+
+[hapee-plus-source]
+name=hapee-plus-source
+enabled=1
+baseurl=http://www.haproxy.com/download/hapee/key/{{ hapee.vendor_key|default("7cd46fa3a2da63bd") }}-plus/rhel-{{ ansible_distribution_major_version }}/$basearch/source/
+gpgcheck=1
+
+
+[hapee-rhi]
+name=hapee-rhi
+enabled=1
+baseurl=http://www.haproxy.com/download/hapee/key/{{ hapee.vendor_key|default("7cd46fa3a2da63bd") }}-rhi/rhel-{{ ansible_distribution_major_version }}/$basearch/bin/
+gpgcheck=1
+
+[hapee-rhi-source]
+name=hapee-rhi-source
+enabled=1
+baseurl=http://www.haproxy.com/download/hapee/key/{{ hapee.vendor_key|default("7cd46fa3a2da63bd") }}-rhi/rhel-{{ ansible_distribution_major_version }}/$basearch/source/
+gpgcheck=1
+
+[hapee-sanitize]
+name=hapee-sanitize
+enabled=1
+baseurl=http://www.haproxy.com/download/hapee/key/{{ hapee.vendor_key|default("7cd46fa3a2da63bd") }}-sanitize/rhel-{{ ansible_distribution_major_version }}/$basearch/bin/
+gpgcheck=1
+
+
+[hapee-antibot]
+name=hapee-antibot
+enabled=1
+baseurl=http://www.haproxy.com/download/hapee/key/{{ hapee.vendor_key|default("7cd46fa3a2da63bd") }}-antibot/rhel-{{ ansible_distribution_major_version }}/$basearch/bin/
+gpgcheck=1
+
+[hapee-fingerprint]
+name=hapee-fingerprint
+enabled=1
+baseurl=http://www.haproxy.com/download/hapee/key/{{ hapee.vendor_key|default("7cd46fa3a2da63bd") }}-fingerprint/rhel-{{ ansible_distribution_major_version }}/$basearch/bin/
+gpgcheck=1
+

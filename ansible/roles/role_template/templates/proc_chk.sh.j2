@@ -1,0 +1,11 @@
+#!/bin/bash
+# Maintained via Ansible , last update on  {{ ansible_date_time.weekday }} {{ ansible_date_time.date }} at {{ ansible_date_time.time }} {{ ansible_date_time.tz }}.
+
+
+STATUS=$(sed -n '/^State:\tZ/p' /proc/$(cat /var/run/hapee-{{ hapee.version }}/hapee-lb.pid)/status)
+
+if [ $? -eq 0 ] && [ -z "$STATUS" ]; then
+  exit 0;
+else
+  exit 1;
+fi

@@ -1,17 +1,14 @@
 # Maintained via Ansible , last update on  {{ ansible_date_time.weekday }} {{ ansible_date_time.date }} at {{ ansible_date_time.time }} {{ ansible_date_time.tz }}.
 
-# Collect log with UDP
 $ModLoad imudp
 $UDPServerRun 514
 $UDPServerAddress 127.0.0.1
 
 $template hapee,"%timegenerated% %msg%\n"
 
+*.warn -/var/log/hapee/hapee_all-errors.log;hapee      # capture all facility.warning and higher in one place and continue
 
-local1.=notice -/var/log/hapee/lb-admin.log;hapee
-& stop
-
-local1.info -/var/log/hapee/lb-access.log;hapee
+local1.* -/var/log/hapee/hapee-global.log;hapee
 & stop
 
 local2.info -/var/log/hapee/hapee_stats.log;hapee
@@ -25,4 +22,3 @@ local3.info -/var/log/hapee/hapee_access.log;hapee
 
 local4.info -/var/log/hapee/hapee_backend.log;hapee
 & stop
-

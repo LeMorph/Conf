@@ -1,11 +1,9 @@
 ###### Begin LeMorph  bashrc #######
-#!/bin/sh
+#!/bin/bash
 
-umask 0027
+umask 0022
 # alias lock='pyxtrlock'
 # alias lock='xtrlock'
-
-alias git='hub'
 
 alias cp='cp'
 alias mv='mv'
@@ -16,14 +14,21 @@ alias rm='rm'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
+alias pcat='pygmentize -f terminal256 -O style=native -g'  # needs pip install Pygments
 
-alias ls='ls -G'   # mac osX
-alias sublime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'  # mac osX
+# alias ls='ls -G'   # mac osX
+# alias sublime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'  # mac osX
+alias sublime='/opt/sublime_text/sublime_text'  # ubuntu
+alias vscode='code-insiders'
+alias jnb='jupyter notebook --notebook-dir=/Users/al/AL/Scripts/Code/python/py&'
 
 alias ls='ls --color=auto'  # GNU/linux
 alias ll='ls -la'
 alias llf='ls -laF'
 alias l.='ls -d .*'
+
+alias yankw='yank -- xsel -b'
+alias yankl='yank -l -- xsel -b'
 
 alias vi='vim'
 alias less='less -FXi'
@@ -31,7 +36,7 @@ alias less='less -FXi'
 export HISTFILESIZE=1073741824
 export HISTSIZE=1073741824
 shopt -s histappend
-#    export HISTTIMEFORMAT='%F %T '
+export HISTTIMEFORMAT='%F %T '
 
 # export PS1="\[\033[1;30m\][\u@\h \W]\$ \[\033[0m\]"   # BOLD GREY
 # export PS1="\[\033[1;31m\][\u@\h \W]\$ \[\033[0m\]"   # BOLD RED
@@ -54,16 +59,28 @@ shopt -s histappend
 # export PS1="\[\033[37m\][\u@\h \W]\$ \[\033[0m\]"  # SKINNY WHITE
 # export PS1="\[\033[31m\][\u@\h \W] λ \[\033[0m\]"  # SKINNY RED λ
 
+## for git/hub ##
+
+alias git='hub'
+test -e "/etc/git-completion.sh" && source "/etc/git-completion.sh"
+test -e "/etc/hub.bash_completion.sh" && source "/etc/hub.bash_completion.sh"
+test -e "/etc/git-prompt.sh" && source "/etc/git-prompt.sh"
+
 # Italicized GIT Label for MAC
+# 
+# source /usr/local/etc/bash_completion
+#
 # export PS1="\[\033[1;31m\]\u@\h \W\[\033[0m\]\[\033[3;36m\]\$(__git_ps1)\[\033[0m\]\[\033[1;37m\]\$ \[\033[0m\]"   # RED
 # export PS1="\[\033[1;32m\]\u@\h \W\[\033[0m\]\[\033[3;36m\]\$(__git_ps1)\[\033[0m\]\[\033[1;37m\]\$ \[\033[0m\]"   # GREEN
+
 # Italicized GIT Label for Linux
-# export PS1="\[\033[1;31m\]\u@\h \W\[\033[0m\]\[\033[1;36m\]\$(__git_ps1)\[\033[0m\]\[\033[1;37m\]\$ \[\033[0m\]"   # RED
-# export PS1="\[\033[1;32m\]\u@\h \W\[\033[0m\]\[\033[1;36m\]\$(__git_ps1)\[\033[0m\]\[\033[1;37m\]\$ \[\033[0m\]"   # GREEN
+export PS1='\[\033[31m\]\u@\h \W\[\033[36m\]$(__git_ps1)\[\033[37m\]\$ \[\033[0m\]'   # Ubuntu Red / Blue git/ White prompt
+
+## for git/hub ##
 
 ## for screen ##
 
-# alias screen='screen -e^Vv'     # ie use C-v instead of C-a
+alias screen='screen -e^Vv -h 5000'     # ie use C-v instead of C-a
 alias scr='screen -dRS'
 alias sls='screen -ls'
 alias mux='tmuxinator'
@@ -75,7 +92,7 @@ fi
 
 export EDITOR=vim
 export TERM=xterm-256color
-set -o vi
+# set -o vi
 
 alias mosh='mosh --ssh="ssh -oStrictHostKeyChecking=no"'
 alias ssh='ssh -oStrictHostKeyChecking=no'
@@ -83,9 +100,7 @@ alias scp='scp -oStrictHostKeyChecking=no'
 alias ansible='ansible --ssh-common-args=-oStrictHostKeyChecking=no'
 alias ansible-playbook='ansible-playbook --ssh-common-args=-oStrictHostKeyChecking=no'
 
-# gc () { gcc -g -Wall $1 -o $(echo $1 | cut -d . -f 1) && ./$(echo $1 | cut -d . -f 1) ; }
-pipU () { pip$1 freeze --local | tee pre_upgrade.txt | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip$1 install -U ; pip$1 install Jinja2==2.8.1; }       # use as pipU and pipU 3.6
+gc () { gcc -g -Wall $1 -o $(echo $1 | cut -d . -f 1) && ./$(echo $1 | cut -d . -f 1) ; }
+pipU () { pip$1 freeze --local | tee pre_upgrade.txt | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip$1 install -U ; }  # pip$1 install Jinja2==2.8.1   # use as pipU and pipU 3.6
 
 ###### End LeMorph  bashrc #######
-
-
