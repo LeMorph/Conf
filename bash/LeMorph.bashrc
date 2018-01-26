@@ -19,7 +19,7 @@ alias pcat='pygmentize -f terminal256 -O style=native -g'  # needs pip install P
 # alias ls='ls -G'   # mac osX
 # alias sublime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'  # mac osX
 alias sublime='/opt/sublime_text/sublime_text'  # ubuntu
-alias vscode='code-insiders'
+alias vscode='code'
 alias jnb='jupyter notebook --notebook-dir=/Users/al/AL/Scripts/Code/python/py&'
 
 alias ls='ls --color=auto'  # GNU/linux
@@ -27,6 +27,7 @@ alias ll='ls -la'
 alias llf='ls -laF'
 alias l.='ls -d .*'
 
+alias yank='yank-cli'
 alias yankw='yank -- xsel -b'
 alias yankl='yank -l -- xsel -b'
 
@@ -74,7 +75,7 @@ test -e "/etc/git-prompt.sh" && source "/etc/git-prompt.sh"
 # export PS1="\[\033[1;32m\]\u@\h \W\[\033[0m\]\[\033[3;36m\]\$(__git_ps1)\[\033[0m\]\[\033[1;37m\]\$ \[\033[0m\]"   # GREEN
 
 # Italicized GIT Label for Linux
-export PS1='\[\033[31m\]\u@\h \W\[\033[36m\]$(__git_ps1)\[\033[37m\]\$ \[\033[0m\]'   # Ubuntu Red / Blue git/ White prompt
+export PS1='\[\033[1;31m\]\u@\h \W\[\033[36m\]$(__git_ps1)\[\033[37m\]\$ \[\033[0m\]'   # Ubuntu Red / Blue git/ White prompt
 
 ## for git/hub ##
 
