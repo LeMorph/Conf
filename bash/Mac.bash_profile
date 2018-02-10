@@ -103,6 +103,8 @@ alias pip='pip2'
 alias python='python2'
 
 gc () { gcc -g -Wall $1 -o $(echo $1 | cut -d . -f 1) && ./$(echo $1 | cut -d . -f 1) ; }
-# pipU () { pip$1 freeze --local | tee pre_upgrade.txt | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip$1 install -U ; }  # pip$1 install Jinja2==2.8.1   # use as pipU and pipU 3.6
+pip3U () { pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U ; } 
+# pip3U () { pip3 freeze --local | tee pre_upgrade.txt | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U ; }
+# pip3 install Jinja2==2.8.1   # use as pip3U
 
 ###### End LeMorph  bashrc #######
