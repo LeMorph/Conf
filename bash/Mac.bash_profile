@@ -1,5 +1,4 @@
 ###### Begin LeMorph  bashrc #######
-#!/bin/bash
 
 umask 0022
 # alias lock='pyxtrlock'
@@ -65,10 +64,9 @@ test -e "/Users/al/profile.d/git-completion.sh" && source "/Users/al/profile.d/g
 test -e "/Users/al/profile.d/hub.bash_completion.sh" && source "/Users/al/profile.d/hub.bash_completion.sh"
 test -e "/Users/al/profile.d/git-prompt.sh" && source "/Users/al/profile.d/git-prompt.sh"
 
-# Italicized GIT Label for MAC
-#
-# source /usr/local/etc/bash_completion
-#
+source /usr/local/etc/bash_completion
+# # source /usr/local/etc/bash_completion.d/*
+
 export PS1="\[\033[1;31m\]\h: \W\[\033[0m\]\[\033[3;36m\]\$(__git_ps1)\[\033[0m\]\[\033[1;37m\]\$ \[\033[0m\]"   # RED
 # export PS1="\[\033[1;32m\]\u@\h \W\[\033[0m\]\[\033[3;36m\]\$(__git_ps1)\[\033[0m\]\[\033[1;37m\]\$ \[\033[0m\]"   # GREEN
 
@@ -83,6 +81,7 @@ alias screen='screen -e^Vv -h 5000'     # ie use C-v instead of C-a
 alias scr='screen -dRS'
 alias sls='screen -ls'
 alias mux='tmuxinator'
+source /usr/local/etc/bash_completion.d/tmuxinator.bash
 
 if [ -n "$STY" ]; then
         PS1='\[\033[1;32m\]''[$(echo $STY | cut -f 2- -d '.')]'-$PS1
@@ -99,12 +98,18 @@ alias scp='scp -oStrictHostKeyChecking=no'
 alias ansible='ansible --ssh-common-args=-oStrictHostKeyChecking=no'
 alias ansible-playbook='ansible-playbook --ssh-common-args=-oStrictHostKeyChecking=no'
 
-alias pip='pip2'
-alias python='python2'
-
 gc () { gcc -g -Wall $1 -o $(echo $1 | cut -d . -f 1) && ./$(echo $1 | cut -d . -f 1) ; }
-pip3U () { pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U ; } 
-# pip3U () { pip3 freeze --local | tee pre_upgrade.txt | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U ; }
-# pip3 install Jinja2==2.8.1   # use as pip3U
+# pip3U () { pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U ; }
+## pip3U () { pip3 freeze --local | tee pre_upgrade.txt | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U ; }
+##  pip3 install Jinja2==2.8.1   # use as pip3U
 
 ###### End LeMorph  bashrc #######
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+export HELM_HOME=/Users/al/Arnold/work/k8s/helm
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/*.bash.inc
+export GOPATH="/Users/al/Arnold/Scripts/Code/Go"
+export GOHOME="$GOPATH/src/github.com/a12o"
+export PATH=$PATH:$(go env GOPATH)/bin
+
