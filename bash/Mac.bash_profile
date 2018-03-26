@@ -112,9 +112,15 @@ source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/*.bash.inc
 
 ## Custom sourcing 
 
-export HELM_HOME=/Users/al/Arnold/work/k8s/helm
+export HELM_HOME="/Users/al/.helm"
 export GOPATH="/Users/al/Arnold/Scripts/Code/Go"
 export GOHOME="$GOPATH/src/github.com/a12o"
 export PATH=$PATH:$(go env GOPATH)/bin
 
 ###### End LeMorph  bashrc #######
+alias mtr='sudo mtr'
+alias iftop='sudo iftop'
+alias htop='sudo htop'
+alias azcopy='blobxfer'
+alias vboxmanage='VBoxManage'
+
