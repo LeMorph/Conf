@@ -17,7 +17,7 @@ alias pcat='pygmentize -f terminal256 -O style=native -g'  # needs pip install P
 
 alias ls='ls -G'   # mac osX
 alias vscode='code'
-alias jnb='jupyter notebook --notebook-dir=/Users/al/Arnold/Scripts/Code/python&'
+alias jnb='jupyter lab --notebook-dir=/Users/al/Arnold/Scripts/Code/python&'
 alias git='hub'
 
 # alias ls='ls --color=auto'  # GNU/linux
