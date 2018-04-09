@@ -90,9 +90,9 @@ alias ansible='ansible --ssh-common-args=-oStrictHostKeyChecking=no'
 alias ansible-playbook='ansible-playbook --ssh-common-args=-oStrictHostKeyChecking=no'
 
 gc () { gcc -g -Wall $1 -o $(echo $1 | cut -d . -f 1) && ./$(echo $1 | cut -d . -f 1) ; }
-# pip3U () { pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U ; }
-## pip3U () { pip3 freeze --local | tee pre_upgrade.txt | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U ; }
-##  pip3 install Jinja2==2.8.1   # use as pip3U
+# pipU () { pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U ; }
+## pipU () { pip freeze --local | tee pre_upgrade.txt | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U ; }
+##  pip install Jinja2==2.8.1   # use as pipU
 
 
 # this sources files from /usr/local/etc/bash_completion.d/*
