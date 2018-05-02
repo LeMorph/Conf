@@ -3,9 +3,74 @@
 " F12 Toggles Mouse between terminal and vim mode
 " F9 Saves as root
 " F5 Beautifies JSON
+" F3 Toggle Search Highlight
 """""""""""""""""""""""""""""""""""
 
-version 6.0
+" usage type either #t or shrug# and a space character
+" see :h Abbrev    for help
+:abbreviate #t # TODO(alasrado):
+:ab shrug# #  ¯\_(ツ)_/¯ :
+
+" Vundle, the plug-in manager for Vim http://github.com/VundleVim/Vundle.Vim
+"
+"
+"
+"
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+" call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" jedi autocompletion library for VIM https://github.com/davidhalter/jedi-vim
+Plugin 'davidhalter/jedi-vim'
+let g:jedi#popup_select_first = 0
+
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+" Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+" Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
+filetype plugin on
+filetype plugin indent on    " required
+
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+"
+"
+"
+"
+" Vundle, the plug-in manager for Vim http://github.com/VundleVim/Vundle.Vim
+
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
@@ -15,6 +80,7 @@ vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())
 let &cpo=s:cpo_save
 unlet s:cpo_save
+set listchars=tab:>-,trail:-
 set background=dark
 set backspace=2
 set fileencodings=ucs-bom,utf-8,default,latin1
@@ -23,21 +89,10 @@ set modelines=0
 set ruler
 set incsearch
 syntax on
-"set hlsearch!
-" set cindent
+colorscheme desert
 set window=0
-" vim: set ft=vim :
-
-" Show Line Numbers
 set number
-
-" Backspace over line ends
-set bs=2
-
-" Do not wrap anything
 set wrap
-
-" Indentation
 set smarttab
 set tabstop=4
 set shiftwidth=4
@@ -46,6 +101,9 @@ set expandtab
 set cindent
 set smartindent
 set shiftround
+
+" global var Hilite is for hlsearch
+let g:hilite = 1
 
 " Mouse is for Vim
 set mouse=a
@@ -85,6 +143,12 @@ if !hasmapto('JsonBeautify()')
     inoremap <F5> <Esc>:call JsonBeautify()<CR>a
 endif
 
+" F3 ToggleHilite
+if !hasmapto('ToggleHilite()')
+    noremap <F3> :call ToggleHilite()<CR>
+    inoremap <F3> <Esc>:call ToggleHilite()<CR>1
+endif
+
 " F10 ToggleFileRegister
 "if !hasmapto('ToggleFileRegister()')
 "    noremap <F10> :call ToggleFileRegister()<CR>
@@ -97,68 +161,68 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 
 " Color Scheme
-hi clear
-syntax reset
-syntax on
-filetype on
-
-
-if has('gui_running')
-    hi Normal       guifg=LightGray   guibg=Black
-    hi NonText      guifg=#505050    guibg=Black
-    hi Comment      guifg=#505050    guibg=Black gui=bold 
-    hi Constant     guifg=DarkCyan    guibg=Black
-    hi Identifier   guifg=Cyan        guibg=Black
-    hi Statement    guifg=#5588cc     guibg=Black
-    hi PreProc      guifg=LightGray   guibg=Black gui=bold 
-    hi Type         guifg=DarkGreen   guibg=Black
-   hi Special      guifg=#5588cc     guibg=Black
-    hi Underlined   guifg=LightGray   guibg=Black gui=underline
-    hi Error        guifg=Red         guibg=Black gui=bold
-    hi Folded       guifg=DarkGreen   guibg=Black gui=underline 
-    hi Scrollbar    guifg=#5588cc     guibg=Black
-    hi Cursor       guifg=Black       guibg=White
-    hi ErrorMsg     guifg=Red         guibg=Black gui=bold 
-    hi WarningMsg   guifg=Yellow      guibg=Black
-    hi VertSplit    guifg=White       guibg=Black
-    hi Directory    guifg=Cyan        guibg=DarkBlue
-    hi Visual       guifg=Black       guibg=Cyan gui=underline 
-    hi Title        guifg=White       guibg=DarkBlue
-    hi Search       guifg=Black       guibg=Cyan
-    hi MatchParen   guifg=Black       guibg=Cyan
-    hi StatusLine   guifg=White       guibg=Black gui=bold,underline
-    hi StatusLineNC guifg=Gray        guibg=Black gui=bold,underline 
-    hi LineNr       guifg=White       guibg=#505050 gui=bold 
-    hi Normal       guifg=LightGray   guibg=Black
-    hi NonText      guifg=#505050    guibg=Black
-else
-    hi Normal       ctermfg=LightGray ctermbg=Black
-    hi NonText      ctermfg=DarkGray  ctermbg=Black
-    hi Comment      ctermfg=DarkGray  ctermbg=Black cterm=bold 
-    hi Constant     ctermfg=DarkCyan  ctermbg=Black
-    hi Identifier   ctermfg=Cyan      ctermbg=Black
-    hi Statement    ctermfg=Blue      ctermbg=Black
-    hi PreProc      ctermfg=LightGray ctermbg=Black cterm=bold 
-    hi Type         ctermfg=DarkGreen ctermbg=Black
-    hi Special      ctermfg=Blue      ctermbg=Black
-    hi Underlined   ctermfg=LightGray ctermbg=Black cterm=underline
-    hi Error        ctermfg=Red       ctermbg=Black cterm=bold
-    hi Folded       ctermfg=DarkGreen ctermbg=Black cterm=underline term=none
-    hi Scrollbar    ctermfg=Blue      ctermbg=Black
-    hi Cursor       ctermfg=Black     ctermbg=White
-    hi ErrorMsg     ctermfg=Red       ctermbg=Black cterm=bold term=bold
-    hi WarningMsg   ctermfg=Yellow    ctermbg=Black
-    hi VertSplit    ctermfg=White     ctermbg=Black
-    hi Directory    ctermfg=Cyan      ctermbg=DarkBlue
-    hi Visual       ctermfg=Black     ctermbg=Cyan cterm=underline term=none
-    hi Title        ctermfg=White     ctermbg=DarkBlue
-    hi Search       ctermfg=Black     ctermbg=Cyan
-    hi MatchParen   ctermfg=Black     ctermbg=Cyan
-    hi StatusLine   ctermfg=White     ctermbg=Black term=bold cterm=bold,underline 
-    hi StatusLineNC ctermfg=Gray      ctermbg=Black term=bold cterm=bold,underline
-    hi LineNr       ctermfg=White     ctermbg=DarkGray term=bold cterm=bold
-endif
-
+" hi clear
+" syntax reset
+" syntax enable
+" syntax on
+" set background=dark
+" filetype on
+" if has('gui_running')
+"     hi Normal       guifg=LightGray   guibg=Black
+"     hi NonText      guifg=#505050    guibg=Black
+"     hi Comment      guifg=#505050    guibg=Black gui=bold
+"     hi Constant     guifg=DarkCyan    guibg=Black
+"     hi Identifier   guifg=Cyan        guibg=Black
+"     hi Statement    guifg=#5588cc     guibg=Black
+"     hi PreProc      guifg=LightGray   guibg=Black gui=bold
+"     hi Type         guifg=DarkGreen   guibg=Black
+"     hi Special      guifg=#5588cc     guibg=Black
+"     hi Underlined   guifg=LightGray   guibg=Black gui=underline
+"     hi Error        guifg=Red         guibg=Black gui=bold
+"     hi Folded       guifg=DarkGreen   guibg=Black gui=underline
+"     hi Scrollbar    guifg=#5588cc     guibg=Black
+"     hi Cursor       guifg=Black       guibg=White
+"     hi ErrorMsg     guifg=Red         guibg=Black gui=bold 
+"     hi WarningMsg   guifg=Yellow      guibg=Black
+"     hi VertSplit    guifg=White       guibg=Black
+"     hi Directory    guifg=Cyan        guibg=DarkBlue
+"     hi Visual       guifg=Black       guibg=Cyan gui=underline 
+"     hi Title        guifg=White       guibg=DarkBlue
+"     hi Search       guifg=Black       guibg=Cyan
+"     hi MatchParen   guifg=Black       guibg=Cyan
+"     hi StatusLine   guifg=White       guibg=Black gui=bold,underline
+"     hi StatusLineNC guifg=Gray        guibg=Black gui=bold,underline 
+"     hi LineNr       guifg=White       guibg=#505050 gui=bold
+"     hi Normal       guifg=LightGray   guibg=Black
+"     hi NonText      guifg=#505050    guibg=Black
+" else
+"     hi Normal       ctermfg=LightGray ctermbg=Black
+"     hi NonText      ctermfg=DarkGray  ctermbg=Black
+"     hi Comment      ctermfg=DarkGray  ctermbg=Black cterm=bold 
+"     hi Constant     ctermfg=DarkCyan  ctermbg=Black
+"     hi Identifier   ctermfg=Cyan      ctermbg=Black
+"     hi Statement    ctermfg=Blue      ctermbg=Black
+"     hi PreProc      ctermfg=LightGray ctermbg=Black cterm=bold 
+"     hi Type         ctermfg=DarkGreen ctermbg=Black
+"     hi Special      ctermfg=Blue      ctermbg=Black
+"     hi Underlined   ctermfg=LightGray ctermbg=Black cterm=underline
+"     hi Error        ctermfg=Red       ctermbg=Black cterm=bold
+"     hi Folded       ctermfg=DarkGreen ctermbg=Black cterm=underline term=none
+"     hi Scrollbar    ctermfg=Blue      ctermbg=Black
+"     hi Cursor       ctermfg=Black     ctermbg=White
+"     hi ErrorMsg     ctermfg=Red       ctermbg=Black cterm=bold term=bold
+"     hi WarningMsg   ctermfg=Yellow    ctermbg=Black
+"     hi VertSplit    ctermfg=White     ctermbg=Black
+"     hi Directory    ctermfg=Cyan      ctermbg=DarkBlue
+"     hi Visual       ctermfg=Black     ctermbg=Cyan cterm=underline term=none
+"     hi Title        ctermfg=White     ctermbg=DarkBlue
+"     hi Search       ctermfg=Black     ctermbg=Cyan
+"     hi MatchParen   ctermfg=Black     ctermbg=Cyan
+"     hi StatusLine   ctermfg=White     ctermbg=Black term=bold cterm=bold,underline 
+"     hi StatusLineNC ctermfg=Gray      ctermbg=Black term=bold cterm=bold,underline
+"     hi LineNr       ctermfg=White     ctermbg=DarkGray term=bold cterm=bold
+" endif
+" 
 " Protect large files from sourcing and other overhead.
 " Files become read only
 " if !exists("my_auto_commands_loaded")
@@ -260,6 +324,20 @@ fun! JsonIndent()
     endwhile
 endfunction
 
+" Function to toggle search highlight
+function ToggleHilite()
+    if !exists("old_hilite")
+        let old_hilite = 1
+    endif
+    if g:hilite == 0
+        let g:hilite = old_hilite
+        set hlsearch!
+    else
+        let old_hilite = g:hilite
+        let g:hilite = 0
+        set hlsearch
+    endif
+endfunction
 
 " Function to toggle mouse from Vim to Terminal
 fun! s:ToggleMouse()

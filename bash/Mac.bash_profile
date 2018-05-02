@@ -94,6 +94,7 @@ gc () { gcc -g -Wall $1 -o $(echo $1 | cut -d . -f 1) && ./$(echo $1 | cut -d . 
 ## pipU () { pip freeze --local | tee pre_upgrade.txt | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U ; }
 ##  pip install Jinja2==2.8.1   # use as pipU
 
+alias py='python3 -c "from ptpython.repl import embed; embed(globals(), locals())"'
 
 # this sources files from /usr/local/etc/bash_completion.d/*
 # using have() and _have() to conserver memory by only loading completions for files in path
@@ -123,4 +124,4 @@ alias iftop='sudo iftop'
 alias htop='sudo htop'
 alias azcopy='blobxfer'
 alias vboxmanage='VBoxManage'
-
+alias rsa='echo -n $(stoken tokencode) | pbcopy'
