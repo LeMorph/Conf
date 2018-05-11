@@ -125,3 +125,19 @@ alias htop='sudo htop'
 alias azcopy='blobxfer'
 alias vboxmanage='VBoxManage'
 alias rsa='echo -n $(stoken tokencode) | pbcopy'
+
+# https://github.com/vmware/govmomi/tree/master/govc
+# govc is a vSphere CLI built on top of govmomi
+# https://github.com/vmware/govmomi/blob/master/govc/USAGE.md
+
+alias govc='govc_darwin_amd64'
+export GOVC_URL=""
+export GOVC_USERNAME=""
+export GOVC_PASSWORD=""
+# Use path separator to specify multiple files:
+# export GOVC_TLS_CA_CERTS=~/ca-certificates/bar.crt:~/ca-certificates/foo.crt
+export GOVC_TLS_CA_CERTS=""
+export GOVC_TLS_KNOWN_HOSTS=~/.govc_known_hosts
+# govc about.cert -u host -k -thumbprint | tee -a $GOVC_TLS_KNOWN_HOSTS
+# govc about -u user:pass@host
+
