@@ -17,7 +17,9 @@ alias pcat='pygmentize -f terminal256 -O style=native -g'  # needs pip install P
 
 alias ls='ls -G'   # mac osX
 alias vscode='code'
-alias jnb='jupyter lab --notebook-dir=/Users/al/Arnold/Scripts/Code/python&'
+# alias jnb='jupyter lab --notebook-dir=/Users/al/Arnold/Scripts/Code/python&'
+jlab () { source activate BOA; jupyter lab --notebook-dir=/Users/al/Arnold/Scripts/Code/python ; }
+alias jnb='jlab &'
 alias git='hub'
 
 # alias ls='ls --color=auto'  # GNU/linux
@@ -131,7 +133,7 @@ alias rsa='echo -n $(stoken tokencode) | pbcopy'
 # https://github.com/vmware/govmomi/blob/master/govc/USAGE.md
 
 alias govc='govc_darwin_amd64'
-export GOVC_URL=""
+export GOVC_URL="https://ESXI_OR_VCENTER_HOSTNAME"
 export GOVC_USERNAME=""
 export GOVC_PASSWORD=""
 # Use path separator to specify multiple files:
@@ -141,3 +143,6 @@ export GOVC_TLS_KNOWN_HOSTS=~/.govc_known_hosts
 # govc about.cert -u host -k -thumbprint | tee -a $GOVC_TLS_KNOWN_HOSTS
 # govc about -u user:pass@host
 
+
+# added by Anaconda3 5.2.0 installer
+export PATH="/Users/al/anaconda3/bin:$PATH"
