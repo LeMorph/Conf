@@ -5,7 +5,13 @@
 " F5 Beautifies JSON
 " F3 Toggle Search Highlight
 """""""""""""""""""""""""""""""""""
-
+"
+"""""""""""""""""""""""""""""""""""
+"swapfiles the location wim writes the temp .swp files created during editing
+set directory=/Users/al/.vim/swapfiles//
+"
+" NOTE * if a directory ends in two path separators "//" or "\\", the swap file name will be built from the complete path to the file with all path separators substituted to percent '%' signs. This will ensure file name uniqueness in the preserve directory
+"""""""""""""""""""""""""""""""""""
 " usage type either #t or shrug# and a space character
 " see :h Abbrev    for help
 :abbreviate #t # TODO(alasrado):
