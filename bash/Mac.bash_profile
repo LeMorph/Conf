@@ -60,8 +60,8 @@ export HISTTIMEFORMAT='%F %T '
 # export PS1="\[\033[37m\][\u@\h \W]\$ \[\033[0m\]"  # SKINNY WHITE
 # export PS1="\[\033[31m\][\u@\h \W] λ \[\033[0m\]"  # SKINNY RED λ
 
-
-export PS1="\[\033[1;31m\]\h: \W\[\033[0m\]\[\033[3;36m\]\$(__git_ps1)\[\033[0m\]\[\033[1;37m\]\$ \[\033[0m\]"   # RED
+# Currently RED
+export PS1="\[\033[1;31m\]\h: \W\[\033[0m\]\[\033[3;36m\]\[\033[0m\]\[\033[1;37m\]\$ \[\033[0m\]"   # RED
 # export PS1="\[\033[1;32m\]\u@\h \W\[\033[0m\]\[\033[3;36m\]\$(__git_ps1)\[\033[0m\]\[\033[1;37m\]\$ \[\033[0m\]"   # GREEN
 
 # Italicized GIT Label for Linux
@@ -72,8 +72,8 @@ export PS1="\[\033[1;31m\]\h: \W\[\033[0m\]\[\033[3;36m\]\$(__git_ps1)\[\033[0m\
 ## for screen ##
 
 alias screen='screen -e^Vv -h 5000'     # ie use C-v instead of C-a
-alias scr='screen -dRS'
-alias sls='screen -ls'
+alias SCR='screen -dRS'
+alias SLS='screen -ls'
 alias mux='tmuxinator'
 
 if [ -n "$STY" ]; then
@@ -92,9 +92,31 @@ alias ansible='ansible --ssh-common-args=-oStrictHostKeyChecking=no'
 alias ansible-playbook='ansible-playbook --ssh-common-args=-oStrictHostKeyChecking=no'
 
 gc () { gcc -g -Wall $1 -o $(echo $1 | cut -d . -f 1) && ./$(echo $1 | cut -d . -f 1) ; }
-# pipU () { pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U ; }
+pipU () { pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U ; }
 ## pipU () { pip freeze --local | tee pre_upgrade.txt | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U ; }
 ##  pip install Jinja2==2.8.1   # use as pipU
+
+GIT () { echo "Sourcing bash-git-prompt used by iterm git profile" && test -e "/Users/al/profile.d/bash-git-prompt/gitprompt.sh" && source "/Users/al/profile.d/bash-git-prompt/gitprompt.sh" && echo -e "The symbols are as follows:
+
+- Local Status Symbols
+  - ``✔``: repository clean
+  - ``●n``: there are ``n`` staged files
+  - ``✖n``: there are ``n`` files with merge conflicts
+  - ``✖-n``: there are ``n`` staged files waiting for removal
+  - ``✚n``: there are ``n`` changed but *unstaged* files
+  - ``…n``: there are ``n`` untracked files
+  - ``⚑n``: there are ``n`` stash entries
+- Upstream branch
+  - Shows the remote tracking branch
+  - Disabled by default
+  - Enable by setting GIT_PROMPT_SHOW_UPSTREAM=1
+- Branch Tracking Symbols
+  - ``↑n``: ahead of remote by ``n`` commits
+  - ``↓n``: behind remote by ``n`` commits
+  - ``↓m↑n``: branches diverged, other by ``m`` commits, yours by ``n`` commits
+  - ``‡‡``: local branch, not remotely tracked
+  " ; }
+
 
 alias py='python3 -c "from ptpython.repl import embed; embed(globals(), locals())"'
 
@@ -103,17 +125,28 @@ alias py='python3 -c "from ptpython.repl import embed; embed(globals(), locals()
 
 source /usr/local/etc/bash_completion
 
-## Custom sourcing 
+## Custom sourcing
 
 test -e "/Users/al/profile.d/git-completion.sh" && source "/Users/al/profile.d/git-completion.sh"
 test -e "/Users/al/profile.d/hub.bash_completion.sh" && source "/Users/al/profile.d/hub.bash_completion.sh"
-test -e "/Users/al/profile.d/git-prompt.sh" && source "/Users/al/profile.d/git-prompt.sh"
+#
+# GIT_PS1_SHOWDIRTYSTATE=true
+# GIT_PS1_SHOWSTASHSTATE=true
+# GIT_PS1_SHOWUNTRACKEDFILES=true
+# GIT_PS1_SHOWCOLORHINTS=true
+# GIT_PS1_SHOWUPSTREAM="auto"
+# GIT_PS1_STATESEPARATOR="|"
+# test -e "/Users/al/profile.d/git-prompt.sh" && source "/Users/al/profile.d/git-prompt.sh"
+# export PS1="\[\033[1;31m\]\h: \W\[\033[0m\]\[\033[3;36m\]\$(__git_ps1)\[\033[0m\]\[\033[1;37m\]\$ \[\033[0m\]"   # RED
+
+# bash-git-prompt used by iterm git profile
+# test -e "/Users/al/profile.d/bash-git-prompt/gitprompt.sh" && source "/Users/al/profile.d/bash-git-prompt/gitprompt.sh"
 
 test -e "/Users/al/profile.d/tmuxinator.bash" && source "/Users/al/profile.d/tmuxinator.bash"
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/*.bash.inc
 
-## Custom sourcing 
+## Custom sourcing
 
 export HELM_HOME="/Users/al/.helm"
 export GOPATH="/Users/al/Arnold/Scripts/Code/Go"
